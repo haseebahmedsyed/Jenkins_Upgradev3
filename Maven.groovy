@@ -4,7 +4,7 @@ job('create-maven-job-via-dsl'){
     git('https://github.com/haseebahmedsyed/Jenkins_Upgradev3.git','master')
   }
   triggers{
-    smc('* * * * *')
+    scm('* * * * *')
   }
   steps{
     maven('clean package','maven-samples/single-module/pom.xml')
