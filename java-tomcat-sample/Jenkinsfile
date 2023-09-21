@@ -15,20 +15,5 @@ pipeline{
 				}
 			}
 		}
-
-		stage('Deploy-To-Staging-Environment'){
-			steps{
-				build job: 'DEPLOY-TO-STAGING-ENV-CODE-DSL'
-			}
-		}
-
-		stage('Deploy-To-Production-Environment'){
-			steps{
-				timeout(time:5, unit:'DAYS'){
-					input message: 'Approve PRODUCTION Deployment?'
-				}
-				build job: 'DEPLOY-TO-PRODUCTION-ENV-CODE-DSL'
-			}
-		}
 	}
 }
