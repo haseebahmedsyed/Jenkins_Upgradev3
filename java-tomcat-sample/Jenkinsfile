@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy in Staging Environment'){
             steps{
-                build job: 'DEPLOY_TO_STAGING_ENV_CODE_DSL'
+                build(job: 'DEPLOY_TO_STAGING_ENV_CODE_DSL')
 
             }
             
@@ -27,7 +27,7 @@ pipeline {
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
                 }
-                build job: 'DEPLOY_TO_PRODUCTION_ENV_CODE_DSL'
+                build(job: 'DEPLOY_TO_PRODUCTION_ENV_CODE_DSL')
             }
         }
     }
