@@ -11,14 +11,14 @@ pipeline {
             post {
                 success {
                     echo "Now Archiving the Artifacts...."
-                    archiveArtifacts artifacts: '**/*'
+                    archiveArtifacts artifacts: '**/*.war'
                 }
             }
         }
         stage('Deploy in Staging Environment'){
             steps{
 	    	echo "Deploying..."
-                build(job: 'DEPLOY_TO_STAGING_ENV_CODE_DSL')
+                build job: 'DEPLOY_TO_STAGING_ENV_CODE_DSL', propagate: false
             }
             
         }
@@ -27,7 +27,7 @@ pipeline {
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
                 }
-                build job: 'DEPLOY_TO_PRODUCTION_ENV_CODE_DSL'
+                build job: 'DEPLOY_TO_PRODUCTION_ENV_CODE_DSL', propagate: false
             }
         }
     }
