@@ -17,8 +17,10 @@ pipeline {
         }
         stage('Deploy in Staging Environment'){
             steps{
+		    script{
 	    	echo "Deploying..."
                 build job: 'DEPLOY_TO_STAGING_ENV_CODE_DSL', propagate: false
+			    }
             }
             
         }
