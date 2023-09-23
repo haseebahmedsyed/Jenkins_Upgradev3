@@ -19,7 +19,7 @@ pipeline {
             steps{
 		    script{
 	    	echo "Deploying..."
-                build job: 'DEPLOY_TO_STAGING_ENV_CODE_DSL', wait: true
+                build job: 'Deploy_To_Staging', wait: true
 			    }
             }
         }
