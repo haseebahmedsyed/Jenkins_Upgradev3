@@ -15,13 +15,16 @@ pipeline {
                 }
             }
         }
-        stage('Deploy in Staging Environment'){
-            steps{
-		    script{
-	    	echo "Deploying..."
-                build job: 'Deploy_To_Staging', wait: true
-			    }
-            }
+        stage('Build Docker App'){
+            sh "docker build -t haseeb38/dockerapp:0.0.1.RELEASE ./java-tomcat-sample"
         }
+        // stage('Deploy in Staging Environment'){
+        //     steps{
+		//     script{
+	    // 	echo "Deploying..."
+        //         build job: 'Deploy_To_Staging', wait: true
+		// 	    }
+        //     }
+        // }
     }
 }
