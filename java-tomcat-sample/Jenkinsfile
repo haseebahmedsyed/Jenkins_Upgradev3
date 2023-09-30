@@ -15,11 +15,5 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker App'){
-            steps{
-		    echo "Building Docker App..."
-                //sh "docker build -t haseeb38/dockerapp:0.0.1.RELEASE ./java-tomcat-sample"
-            }
-        }
     }
 }
