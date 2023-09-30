@@ -16,7 +16,9 @@ pipeline {
             }
         }
         stage('Build Docker App'){
-            sh "docker build -t haseeb38/dockerapp:0.0.1.RELEASE ./java-tomcat-sample"
+            steps{
+                sh "docker build -t haseeb38/dockerapp:0.0.1.RELEASE ./java-tomcat-sample"
+            }
         }
         // stage('Deploy in Staging Environment'){
         //     steps{
